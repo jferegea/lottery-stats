@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas de Lotería - Primitiva</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Estadísticas de Lotería - Primitiva</h1>
+            <p>Análisis completo de sorteos y tendencias</p>
+            <div class="sync-status">
+                <button id="btnSincronizar" class="btn btn-sync">🔄 Sincronizar desde Internet</button>
+                <span id="statusSync" class="status-text">Estado: Listo</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="section input-section">
+                <h2>Nuevo Sorteo</h2>
+                <div class="form-group">
+                    <label>Selecciona 7 números (1-49):</label>
+                    <div class="numeros-selector">
+                        <div id="numerosSeleccionados" class="numeros-seleccionados"></div>
+                        <div class="numeros-grid">
+                            <div id="gridNumeros"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Reintegro (0-9):</label>
+                    <div id="reintegroSelector" class="reintegro-selector"></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Fecha del sorteo:</label>
+                    <input type="date" id="fechaSorteo" value="">
+                </div>
+
+                <button id="btnAgregar" class="btn btn-primary">Agregar Sorteo</button>
+            </section>
+
+            <section class="section sorteos-section">
+                <h2>Historial de Sorteos</h2>
+                <div class="sorteos-container">
+                    <table id="tablaSorteos" class="tabla-sorteos">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Números</th>
+                                <th>Reintegro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaSorteosBody">
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="section predicciones-section">
+                <h2>🎯 Predicciones Inteligentes</h2>
+                <div class="prediction-methods">
+                    <div class="prediction-card" id="prediccionBasica">
+                        <h3>Método Básico</h3>
+                        <p class="method-desc">Números más frecuentes en todo el histórico</p>
+                        <div class="prediction-content" id="prediccionBasicaContent"></div>
+                    </div>
+                    <div class="prediction-card" id="prediccionOptimizada">
+                        <h3>Método Optimizado</h3>
+                        <p class="method-desc">Frecuencia + Balance de decenas</p>
+                        <div class="prediction-content" id="prediccionOptimizadaContent"></div>
+                    </div>
+                    <div class="prediction-card" id="prediccionAvanzada">
+                        <h3>Método Avanzado</h3>
+                        <p class="method-desc">Análisis de parejas más frecuentes</p>
+                        <div class="prediction-content" id="prediccionAvanzadaContent"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section stats-section">
+                <h2>Análisis Estadístico</h2>
+
+                <div class="estadistica">
+                    <h3>Frecuencia Absoluta (Números más frecuentes)</h3>
+                    <div class="stats-content">
+                        <div class="stats-column">
+                            <h4>Números Principales</h4>
+                            <div id="frecuenciaAbsolutaPrincipales" class="stats-list"></div>
+                        </div>
+                        <div class="stats-column">
+                            <h4>Reintegros</h4>
+                            <div id="frecuenciaAbsolutaReintegros" class="stats-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="estadistica">
+                    <h3>Frecuencia Relativa (Cada cuántos juegos aparece)</h3>
+                    <p class="info-text">Menor número = aparece más frecuentemente</p>
+                    <div class="stats-content">
+                        <div class="stats-column">
+                            <h4>Números Principales</h4>
+                            <div id="frecuenciaRelativaPrincipales" class="stats-list"></div>
+                        </div>
+                        <div class="stats-column">
+                            <h4>Reintegros</h4>
+                            <div id="frecuenciaRelativaReintegros" class="stats-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="estadistica">
+                    <h3>Parejas de Números (Top 20)</h3>
+                    <div id="parejasContent" class="stats-list"></div>
+                </div>
+
+                <div class="estadistica">
+                    <h3>Distribución por Decenas</h3>
+                    <div id="decenasContent" class="stats-grid"></div>
+                </div>
+
+                <div class="estadistica">
+                    <h3>Análisis de Pares e Impares</h3>
+                    <div id="paresImparesContent" class="stats-analysis"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
